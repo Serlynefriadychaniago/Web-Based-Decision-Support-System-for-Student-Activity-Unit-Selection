@@ -1,0 +1,996 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* =========================================================
+   DESIGN TOKENS & SYSTEM VARIABLES
+========================================================= */
+
+:root {
+    --red-50:      #FDF2F2;
+    --red-100:     #FCE4E4;
+    --red-200:     #F8C4C4;
+    --red-300:     #F29494;
+    --red-400:     #A80000;
+    --red-500:     #8B0000;
+    --red-600:     #770000;
+    --red-700:     #5F0000;
+    --red-800:     #480000;
+    
+    --charcoal:    #1f2937;
+    --mauve:       #6b7280;
+    --bg-main:     #fcf8f8;
+    
+    --shadow-soft: 0 4px 20px rgba(139, 0, 0, 0.08);
+    --shadow-lift: 0 12px 32px rgba(139, 0, 0, 0.16);
+    --shadow-glow: 0 4px 16px rgba(139, 0, 0, 0.35);
+    
+    --radius-sm:   8px;
+    --radius-md:   14px;
+    --radius-lg:   20px;
+    --radius-xl:   30px;
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+[x-cloak] {
+    display: none !important;
+}
+
+.no-transition,
+.no-transition * {
+    transition: none !important;
+}
+
+@layer base {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+    }
+
+    body {
+        font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+        color: var(--charcoal);
+        background: var(--bg-main);
+    }
+
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app-body {
+    min-height: 100vh;
+    background: #fffafa;
+}
+
+.app-wrapper {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+
+    width: 308px;
+
+    min-width: 308px;
+
+    min-height: 100vh;
+
+    background: #ffffff;
+
+    border-right: 1px solid #fca5a5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: relative;
+
+    z-index: 10;
+
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), min-width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.sidebar-brand {
+
+    height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid #fecaca;
+
+}
+
+
+.brand-logo {
+
+    width: 44px;
+
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: transparent;
+
+}
+
+.brand-logo-img {
+
+    width: 100%;
+
+    height: 100%;
+
+    max-width: 44px;
+
+    max-height: 44px;
+
+    object-fit: contain;
+
+    display: block;
+
+}
+
+
+.brand-text {
+    line-height: 1.1;
+}
+
+
+.brand-title {
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    color: #da2424;
+
+    letter-spacing: -0.5px;
+
+}
+
+
+.brand-subtitle {
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    color: #b91c1c;
+
+    margin-top: 4px;
+
+}
+
+
+/* =========================================================
+   SIDEBAR CONTENT
+========================================================= */
+
+.sidebar-content {
+
+    padding: 30px 20px 10px;
+
+    flex: 1;
+
+}
+
+
+.menu-section-title {
+
+    padding-left: 13px;
+
+    margin-bottom: 15px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #991b1b;
+
+    letter-spacing: 0.3px;
+
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.sidebar-menu {
+
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 0 13px;
+
+    margin-bottom: 6px;
+
+    border-radius: 9px;
+
+    color: #374151;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+
+}
+
+
+.sidebar-menu svg {
+
+    width: 22px;
+
+    height: 22px;
+
+    flex-shrink: 0;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+}
+
+
+.sidebar-menu:hover {
+
+    background: #fef2f2;
+
+    color: #da2424;
+
+}
+
+
+.sidebar-menu.active {
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    font-weight: 650;
+
+}
+
+
+.sidebar-menu.active svg {
+
+    stroke-width: 2;
+
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+========================================================= */
+
+.sidebar-bottom {
+
+    padding: 0 20px 22px;
+
+}
+
+
+.student-illustration {
+
+    height: 165px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    margin-bottom: 8px;
+
+}
+
+
+.student-illustration img {
+
+    width: 235px;
+
+    height: auto;
+
+    max-height: 165px;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.sidebar-quote {
+
+    position: relative;
+
+    padding: 18px 20px;
+
+    background: #fef2f2;
+
+    border-radius: 12px;
+
+    border: 1px solid #fecaca;
+
+    color: #991b1b;
+
+}
+
+
+.sidebar-quote p {
+
+    margin: 0;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+.quote-mark {
+
+    font-size: 28px;
+
+    line-height: 18px;
+
+    font-weight: 800;
+
+}
+
+
+.quote-right {
+
+    text-align: right;
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main-area {
+
+    flex: 1;
+
+    min-width: 0;
+
+    min-height: 100vh;
+
+    background: #fffafa;
+
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+
+    height: 82px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #fca5a5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 34px 0 40px;
+
+}
+
+
+.topbar-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+}
+
+
+.sidebar-toggle-btn {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 10px;
+
+    border: 1px solid #fecaca;
+
+    background: #ffffff;
+
+    color: #da2424;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    flex-shrink: 0;
+
+    box-shadow: 0 2px 6px rgba(218, 36, 36, 0.08);
+
+}
+
+
+.sidebar-toggle-btn:hover {
+
+    background: #fef2f2;
+
+    color: #991b1b;
+
+    border-color: #fca5a5;
+
+}
+
+
+.sidebar-toggle-btn .toggle-icon {
+
+    width: 20px;
+
+    height: 20px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    transition: transform 0.25s ease;
+
+}
+
+
+.topbar-left h2 {
+
+    margin: 0;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+}
+
+
+.topbar-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+.user-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+}
+
+
+.user-avatar {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #da2424;
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    box-shadow: 0 3px 10px rgba(218, 36, 36, 0.25);
+
+}
+
+
+.user-info {
+
+    line-height: 1.25;
+
+}
+
+
+.user-name {
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+}
+
+
+.user-role {
+
+    font-size: 12px;
+
+    color: #6b7280;
+
+    margin-top: 2px;
+
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page-content {
+
+    padding: 28px 38px 40px;
+
+}
+
+
+/* =========================================================
+   GENERIC CARD
+========================================================= */
+
+.ui-card {
+
+    background: #ffffff;
+
+    border: 1px solid #fca5a5;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 2px 8px rgba(218, 36, 36, 0.03);
+
+}
+
+
+/* =========================================================
+   COLLAPSED SIDEBAR (DESKTOP)
+========================================================= */
+
+@media (min-width: 761px) {
+
+    .sidebar-collapsed .sidebar {
+        width: 78px !important;
+        min-width: 78px !important;
+    }
+
+    .sidebar-collapsed .sidebar-brand {
+        justify-content: center;
+        padding: 0 10px;
+    }
+
+    .sidebar-collapsed .brand-text {
+        display: none !important;
+    }
+
+    .sidebar-collapsed .menu-section-title {
+        display: none !important;
+    }
+
+    .sidebar-collapsed .sidebar-content {
+        padding: 20px 10px 10px;
+    }
+
+    .sidebar-collapsed .sidebar-menu {
+        justify-content: center;
+        padding: 0;
+        gap: 0;
+        position: relative;
+    }
+
+    .sidebar-collapsed .sidebar-menu span {
+        display: none !important;
+    }
+
+    .sidebar-collapsed .sidebar-bottom {
+        display: none !important;
+    }
+
+    .sidebar-collapsed .sidebar-toggle-btn .toggle-icon {
+        transform: rotate(180deg);
+    }
+
+    /* Floating Tooltip on Hover when Collapsed */
+    .sidebar-collapsed .sidebar-menu:hover::after {
+        content: attr(data-title);
+        position: absolute;
+        left: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: #da2424;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 8px;
+        white-space: nowrap;
+        z-index: 1050;
+        box-shadow: 0 4px 14px rgba(218, 36, 36, 0.18);
+        pointer-events: none;
+        opacity: 1;
+        transition: opacity 0.15s ease-in-out;
+    }
+
+    .sidebar-collapsed .sidebar-menu:hover::before {
+        content: '';
+        position: absolute;
+        left: calc(100% + 4px);
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent #da2424 transparent transparent;
+        z-index: 1050;
+        pointer-events: none;
+        opacity: 1;
+        transition: opacity 0.15s ease-in-out;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 250px;
+        min-width: 250px;
+    }
+
+    .brand-title {
+        font-size: 16px;
+    }
+
+    .brand-subtitle {
+        font-size: 13px;
+    }
+
+    .page-content {
+        padding: 25px;
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        width: 76px;
+        min-width: 76px;
+    }
+
+    .sidebar-brand {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .brand-text,
+    .menu-section-title,
+    .sidebar-menu span,
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .sidebar-menu {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .topbar {
+        padding: 0 18px;
+    }
+
+    .page-content {
+        padding: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   CARDS & HOVER ELEVATION
+========================================================= */
+
+.ui-card,
+.stat-card,
+.quick-card,
+.ukm-card {
+    background: #ffffff;
+    border: 1px solid var(--red-200);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease;
+}
+
+.ui-card:hover,
+.stat-card:hover,
+.quick-card:hover,
+.ukm-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift);
+    border-color: var(--red-300);
+}
+
+/* UKM Card Image Zoom Effect */
+.ukm-card-img,
+.card-img-wrap {
+    overflow: hidden;
+    position: relative;
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+}
+
+.ukm-card-img img,
+.card-img-wrap img {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ukm-card:hover .ukm-card-img img,
+.card-img-wrap:hover img,
+.ukm-card:hover .card-img-wrap img {
+    transform: scale(1.06);
+}
+
+/* =========================================================
+   TABLES & RANKING HIGHLIGHTS
+========================================================= */
+
+.ranking-table,
+.table-custom {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.ranking-table th,
+.table-custom th {
+    background: var(--red-50);
+    color: var(--red-700);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--red-200);
+}
+
+.ranking-table td,
+.table-custom td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #fce8e8;
+    color: var(--charcoal);
+    vertical-align: middle;
+    transition: background 0.2s ease;
+}
+
+.ranking-table tr:last-child td,
+.table-custom tr:last-child td {
+    border-bottom: none;
+}
+
+.ranking-table tr:hover td,
+.table-custom tr:hover td {
+    background: var(--red-50);
+}
+
+/* Medals for Top Recommendations */
+.rank-medal {
+    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+}
+
+/* =========================================================
+   PILL TABS & BADGES
+========================================================= */
+
+.pill-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: var(--radius-xl);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--mauve);
+    background: #ffffff;
+    border: 1.5px solid var(--red-200);
+    transition: all 0.2s ease;
+}
+
+.pill-tab:hover {
+    background: var(--red-50);
+    color: var(--red-600);
+    border-color: var(--red-300);
+}
+
+.pill-tab.active {
+    background: linear-gradient(135deg, var(--red-400), var(--red-600));
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: var(--shadow-glow);
+}
+
+/* =========================================================
+   KEYFRAME ANIMATIONS
+========================================================= */
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-heartbeat {
+    animation: heartbeat 1.8s ease infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-slide-down {
+    animation: slideDown 0.25s ease forwards;
+}
+
+/* =========================================================
+   MOBILE RESPONSIVENESS (USABILITY TEST FIX)
+========================================================= */
+
+@media (max-width: 768px) {
+    /* Main Area takes full width */
+    .app-wrapper {
+        position: relative;
+        overflow-x: hidden;
+    }
+    
+    .main-area {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    /* Off-canvas Sidebar */
+    .sidebar {
+        position: fixed;
+        left: -320px;
+        top: 0;
+        bottom: 0;
+        width: 280px;
+        min-width: 280px;
+        height: 100%;
+        box-shadow: var(--shadow-lift);
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50;
+    }
+
+    /* When mobile sidebar is open */
+    .app-wrapper.mobile-sidebar-open .sidebar {
+        left: 0;
+    }
+    
+    /* Topbar adjustments */
+    .topbar {
+        padding: 0 15px;
+    }
+    
+    .topbar-left h2 {
+        font-size: 1.1rem;
+    }
+    
+    .page-content {
+        padding: 20px 15px;
+    }
+}
